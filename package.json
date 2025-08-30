@@ -1,0 +1,19 @@
+{
+  "name": "starlight-carbon-ads-monorepo",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Add Carbon Ads to your Starlight site",
+  "author": "trueberryless-org",
+  "type": "module",
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "private": true,
+  "homepage": "https://github.com/trueberryless-org/starlight-carbon-ads",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trueberryless-org/starlight-carbon-ads.git"
+  },
+  "bugs": "https://github.com/trueberryless-org/starlight-carbon-ads/issues"
+}
