@@ -1,20 +1,57 @@
 import type { StarlightPlugin } from "@astrojs/starlight/types";
 
-export default function starlightCarbonAds(): StarlightPlugin {
+import {
+  type StarlightCarbonAdsConfig,
+  type StarlightCarbonAdsUserConfig,
+  validateConfig,
+} from "./libs/config";
+import { overrideStarlightComponent } from "./libs/starlight";
+import { vitePluginStarlightCarbonAdsConfig } from "./libs/vite";
+
+export type { StarlightCarbonAdsConfig, StarlightCarbonAdsUserConfig };
+
+export default function starlightCarbonAds(
+  userConfig?: StarlightCarbonAdsUserConfig
+): StarlightPlugin {
+  const config = validateConfig(userConfig);
+
   return {
     name: "starlight-carbon-ads",
     hooks: {
-      "config:setup"({ logger }) {
-        /**
-         * This is the entry point of your Starlight plugin.
-         * The `config:setup` hook is called when Starlight is initialized (during the Astro `astro:config:setup`
-         * integration hook).
-         * To learn more about the Starlight plugin API and all available options in this hook, check the Starlight
-         * plugins reference.
-         *
-         * @see https://starlight.astro.build/reference/plugins/
-         */
-        logger.info("Hello from the starlight-carbon-ads plugin!");
+      "config:setup"({
+        addIntegration,
+        updateConfig: updateStarlightConfig,
+        config: starlightConfig,
+        logger,
+      }) {
+        updateStarlightConfig({
+          components: {
+            ...starlightConfig.components,
+            ...overrideStarlightComponent(
+              starlightConfig.components,
+              logger,
+              "TableOfContents"
+            ),
+            ...overrideStarlightComponent(
+              starlightConfig.components,
+              logger,
+              "Pagination"
+            ),
+          },
+        });
+
+        addIntegration({
+          name: "starlight-carbon-ads-integration",
+          hooks: {
+            "astro:config:setup": ({ updateConfig }) => {
+              updateConfig({
+                vite: {
+                  plugins: [vitePluginStarlightCarbonAdsConfig(config)],
+                },
+              });
+            },
+          },
+        });
       },
     },
   };

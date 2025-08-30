@@ -15,7 +15,11 @@
   "author": "trueberryless <trueberryless@gmail.com> (https://trueberryless.org)",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./overrides/Pagination.astro": "./overrides/Pagination.astro",
+    "./overrides/TableOfContents.astro": "./overrides/TableOfContents.astro",
+    "./components/Pagination.astro": "./components/starlight/Pagination.astro",
+    "./components/TableOfContents.astro": "./components/starlight/TableOfContents.astro"
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.35.2",

@@ -9,11 +9,16 @@ export default defineConfig({
         baseUrl:
           "https://github.com/trueberryless-org/starlight-carbon-ads/edit/main/docs/",
       },
-      plugins: [starlightCarbonAds()],
+      plugins: [
+        starlightCarbonAds({
+          code: "test",
+          placement: "https://starlight-carbon-ads.netlify.app/",
+        }),
+      ],
       sidebar: [
         {
           label: "Start Here",
-          items: ["getting-started"],
+          items: ["getting-started", "configuration"],
         },
       ],
       social: [
@@ -23,7 +28,7 @@ export default defineConfig({
           label: "GitHub",
         },
       ],
-      title: "starlight-carbon-ads",
+      title: "Starlight Carbon Ads",
     }),
   ],
 });

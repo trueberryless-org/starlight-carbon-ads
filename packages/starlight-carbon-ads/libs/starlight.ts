@@ -1,0 +1,28 @@
+import type { StarlightUserConfig } from "@astrojs/starlight/types";
+import type { AstroIntegrationLogger } from "astro";
+
+export function overrideStarlightComponent(
+  components: StarlightUserConfig["components"],
+  logger: AstroIntegrationLogger,
+  override: keyof NonNullable<StarlightUserConfig["components"]>
+) {
+  if (components?.[override]) {
+    logger.warn(
+      `It looks like you already have a \`${override}\` component override in your Starlight configuration.`
+    );
+    logger.warn(
+      `To use \`starlight-carbon-ads\`, either remove your override or update it to render the content from \`starlight-carbon-ads/components/${override}.astro\`.`
+    );
+    if (override === "TableOfContents") {
+      logger.warn(
+        "Notice that the `TableOfContents` component must be rendered AFTER the original Starlight `TableOfContents` component in the DOM. This ensures proper layout and behavior within the application."
+      );
+    }
+
+    return {};
+  }
+
+  return {
+    [override]: `starlight-carbon-ads/overrides/${override}.astro`,
+  };
+}

@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-Add Carbon Ads to your Starlight site
+Add Carbon Ads to your Starlight site.
 
 ## Prerequisites
 
@@ -47,21 +47,26 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
 
 2. Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file.
 
-   ```diff lang="js"
-   // astro.config.mjs
-   import starlight from '@astrojs/starlight'
-   import { defineConfig } from 'astro/config'
-   +import starlightCarbonAds from 'starlight-carbon-ads'
+    ```diff lang="js"
+    // astro.config.mjs
+    import starlight from '@astrojs/starlight'
+    import { defineConfig } from 'astro/config'
+    +import starlightCarbonAds from 'starlight-carbon-ads'
 
-   export default defineConfig({
-     integrations: [
-       starlight({
-   +      plugins: [starlightCarbonAds()],
-         title: 'My Docs',
-       }),
-     ],
-   })
-   ```
+    export default defineConfig({
+      integrations: [
+        starlight({
+    +      plugins: [
+    +        starlightCarbonAds({
+    +          code: "your-carbon-code",
+    +          placement: "your-carbon-placement",
+    +        }),
+    +      ],
+          title: 'My Docs',
+        }),
+      ],
+    })
+    ```
 
 3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
 

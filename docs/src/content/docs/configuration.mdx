@@ -1,0 +1,65 @@
+---
+title: Configuration
+description: An overview of all the configuration options supported by the Starlight Carbon Ads plugin.
+---
+
+The Starlight Carbon Ads plugin can be configured inside the `astro.config.mjs` configuration file of your project:
+
+```js {11}
+// astro.config.mjs
+import starlight from "@astrojs/starlight";
+import { defineConfig } from "astro/config";
+import starlightCarbonAds from "starlight-carbon-ads";
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      plugins: [
+        starlightCarbonAds({
+          // Configuration options go here.
+        }),
+      ],
+      title: "My Docs",
+    }),
+  ],
+});
+```
+
+## Configuration options
+
+The Starlight Carbon Ads plugin accepts the following configuration options:
+
+### `code`
+
+**Type:** `string`  
+**Required**
+
+Your `code` from [CarbonAds](https://www.carbonads.net/join).
+This values is used to call carbon CDN script as shown below.
+
+```js
+`//cdn.carbonads.com/carbon.js?serve=${code}&placement=${placement}`
+```
+
+To learn more about Carbon Ads configuration, please visit [Carbon Ads website](https://www.carbonads.net/).
+
+### `placement`
+
+**Type:** `string`  
+**Required**
+
+Your `placement` from [CarbonAds](https://www.carbonads.net/join).
+This values is used to call carbon CDN script as shown below.
+
+```js
+`//cdn.carbonads.com/carbon.js?serve=${code}&placement=${placement}`
+```
+
+To learn more about Carbon Ads configuration, please visit [Carbon Ads website](https://www.carbonads.net/).
+
+### `optionalAds`
+
+**Type:** `boolean`  
+**Default:** `true`
+
+Decide if users can turn off ads.
