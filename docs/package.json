@@ -1,16 +1,24 @@
 {
   "name": "starlight-carbon-ads-docs",
   "version": "0.0.1",
-  "license": "MIT",
+  "private": true,
   "description": "Add Carbon Ads to your Starlight site",
+  "homepage": "https://github.com/trueberryless-org/starlight-carbon-ads",
+  "bugs": "https://github.com/trueberryless-org/starlight-carbon-ads/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trueberryless-org/starlight-carbon-ads.git",
+    "directory": "docs"
+  },
+  "license": "MIT",
   "author": "trueberryless-org",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.35.2",
@@ -18,15 +26,8 @@
     "sharp": "^0.34.3",
     "starlight-carbon-ads": "workspace:*"
   },
+  "packageManager": "pnpm@10.10.0",
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  },
-  "private": true,
-  "homepage": "https://github.com/trueberryless-org/starlight-carbon-ads",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-carbon-ads.git",
-    "directory": "docs"
-  },
-  "bugs": "https://github.com/trueberryless-org/starlight-carbon-ads/issues"
+  }
 }
