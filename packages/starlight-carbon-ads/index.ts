@@ -1,10 +1,10 @@
-import type { StarlightPlugin } from '@astrojs/starlight/types'
+import type { StarlightPlugin } from "@astrojs/starlight/types";
 
 export default function starlightCarbonAds(): StarlightPlugin {
   return {
-    name: 'starlight-carbon-ads',
+    name: "starlight-carbon-ads",
     hooks: {
-      'config:setup'({ logger }) {
+      "config:setup"({ logger }) {
         /**
          * This is the entry point of your Starlight plugin.
          * The `config:setup` hook is called when Starlight is initialized (during the Astro `astro:config:setup`
@@ -14,8 +14,8 @@ export default function starlightCarbonAds(): StarlightPlugin {
          *
          * @see https://starlight.astro.build/reference/plugins/
          */
-        logger.info('Hello from the starlight-carbon-ads plugin!')
+        logger.info("Hello from the starlight-carbon-ads plugin!");
       },
     },
-  }
+  };
 }
